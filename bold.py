@@ -19,3 +19,17 @@ def changeBold( target_word ) :
                 run = new_paragraph.add_run(paragraph.text)
                 run.bold = True
                 count = 1
+            
+            else :
+                # Split the paragraph text into segments based on the target word
+                segments = paragraph.text.split(target_word)
+
+                # Create a new paragraph for the modified text
+                new_paragraph = new_doc.add_paragraph()
+                for i, segment in enumerate(segments):
+                    if segment:
+                        new_paragraph.add_run(segment)  # Add the surrounding text
+                    if  ( i < len(segments) - 1 ) :
+                        run = new_paragraph.add_run(target_word)  # Add the target word
+                        run.bold = True
+                        run.underline = True
