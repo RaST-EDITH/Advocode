@@ -33,3 +33,12 @@ def changeBold( target_word ) :
                         run = new_paragraph.add_run(target_word)  # Add the target word
                         run.bold = True
                         run.underline = True
+
+        else:
+            # If the paragraph does not contain the target word, copy it to the new document as is
+            new_doc.add_paragraph(paragraph.text)
+
+    # Save the modified content to a new DOCX file
+    if os.path.exists(r'Licence-to-use-Copyright2.docx'):
+        os.remove(r'Licence-to-use-Copyright2.docx')
+    new_doc.save(r'Licence-to-use-Copyright2.docx')
