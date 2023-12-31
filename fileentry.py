@@ -12,7 +12,7 @@ def fillBlanks( file, cred ) :
         for i in range(len(newpara)) :
             if newpara[i] in cred.keys() :
                 newpara[i] = cred[newpara[i]]
-
+    
         para.clear()
         para.add_run( " ".join(newpara))
     path = file.split(".docx")[0]
@@ -22,3 +22,12 @@ def fillBlanks( file, cred ) :
     if os.path.exists( path ):
         os.remove( path )
     return
+
+cred = {
+    "idName" : "Rahul",
+    "idParent" : "Malhan",
+    "idRO" : "Kuch bhi",
+    "idDate" : "20/10/2002",
+}
+
+fillBlanks( r'General-Power-of-Attorney.docx', cred )
