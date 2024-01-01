@@ -23,3 +23,8 @@ def construct_index(directory_path):
     index.save_to_disk('index.json')
 
     return index
+
+def chatbot(input_text):
+    index = GPTSimpleVectorIndex.load_from_disk('index.json')
+    response = index.query(input_text, response_mode="compact")
+    return response.response
