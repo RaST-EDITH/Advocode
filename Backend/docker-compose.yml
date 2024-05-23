@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  backend:
+    restart: always
+    image: hmx098/nyayvedika_backend
+    pull_policy: always
+    ports:
+      - 8000:8000
+    volumes:
+      - type: bind
+        source: ./envs
+        target: /app/envs
+      - type: bind
+        source: ./models
+        target: /app/models
+      - type: bind
+        source: ./docs
+        target: /app/docs
