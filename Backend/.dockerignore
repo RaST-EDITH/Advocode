@@ -1,0 +1,5 @@
+docs/*.pdf
+envs/*.json
+envs/*.env
+models/*.json
+venv/
